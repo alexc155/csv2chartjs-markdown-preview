@@ -16,10 +16,8 @@ export function activate(context: vscode.ExtensionContext) {
       const highlight = md.options.highlight;
 
       md.options.highlight = (code, lang) => {
-        console.log("Lang is", lang);
-        console.log("Code is", code.trim());
         if (lang && lang.match(/\bchart\b/i)) {
-          return `<canvas class="chartjs">${code}</canvas>`;
+          return `<canvas class="chartjs">${code.trim()}</canvas>`;
         }
 
         return highlight(code, lang);
@@ -31,4 +29,4 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }

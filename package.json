@@ -1,49 +1,49 @@
 {
-  "name": "graphviz-markdown-preview",
-  "displayName": "Graphviz Markdown Preview",
-  "description": "Adds Graphviz support to VSCode's builtin markdown preview",
-  "version": "0.0.6",
-  "publisher": "geeklearningio",
-  "engines": {
-    "vscode": "^1.20.0"
-  },
-  "preview": true,
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:extension.sayHello"
-  ],
-  "main": "./out/extension",
-  "contributes": {
-    "markdown.previewStyles": [
-      "./graphviz.css"
+    "name": "chartjs-markdown-preview",
+    "displayName": "Chart.js Markdown Preview",
+    "description": "Adds Chart.js support to VSCode's builtin markdown preview",
+    "version": "0.0.1",
+    "publisher": "FlomoN",
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "preview": true,
+    "categories": [
+        "Other"
     ],
-    "markdown.previewScripts": [
-      "./node_modules/chart.js/dist/Chart.min.js",
-      "./graphviz-render.js"
+    "activationEvents": [
+        "onCommand:extension.sayHello"
     ],
-    "markdown.markdownItPlugins": true
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
-  },
-  "devDependencies": {
-    "@types/mocha": "^2.2.42",
-    "@types/node": "^7.0.43",
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.6"
-  },
-  "dependencies": {
-    "viz.js": "^1.8.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/geeklearningio/graphviz-markdown-preview.git"
-  },
-  "icon": "graphviz-logo.png"
+    "main": "./out/extension",
+    "contributes": {
+        "markdown.previewStyles": [
+            "./charts.css"
+        ],
+        "markdown.previewScripts": [
+            "./node_modules/chart.js/dist/Chart.min.js",
+            "./charts-render.js"
+        ],
+        "markdown.markdownItPlugins": true
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "chart.js": "^2.7.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/FlomoN/chartjs-markdown-preview.git"
+    },
+    "icon": "logo.png"
 }
