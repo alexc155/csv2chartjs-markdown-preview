@@ -2,7 +2,7 @@
     "name": "chartjs-markdown-preview",
     "displayName": "Chart.js Markdown Preview",
     "description": "Adds Chart.js support to VSCode's builtin markdown preview",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "FlomoN",
     "engines": {
         "vscode": "^1.20.0"
