@@ -26,8 +26,8 @@ function contentLoaded() {
 
   for (let index = 0; index < newchartElements.length; index++) {
     var element = newchartElements.item(index);
-    var source = element.textContent;
-    new Chart(element.getContext("2d"), JSON.parse(source));
+    var source = element.textContent.replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2": ');
+    new Chart(element.getContext("2d"), JSON.parse(source.trim()));
   }
 
 }

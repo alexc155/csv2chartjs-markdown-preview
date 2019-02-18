@@ -2,7 +2,7 @@
 
 Adds [Chart.js](https://www.chartjs.org/) support to VS Code's builtin markdown preview
 
-![](https://github.com/FlomoN/chartjs-markdown-preview/blob/master/docs/preview.PNG)
+![](https://github.com/FlomoN/chartjs-markdown-preview/raw/master/docs/preview.PNG)
 
 
 ## Usage
