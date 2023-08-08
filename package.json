@@ -20,7 +20,7 @@
             "./charts.css"
         ],
         "markdown.previewScripts": [
-            "./node_modules/chart.js/dist/Chart.min.js",
+            "./node_modules/chart.js/dist/chart.umd.js",
             "./charts-render.js"
         ],
         "markdown.markdownItPlugins": true
@@ -39,7 +39,7 @@
         "vscode": "^1.1.6"
     },
     "dependencies": {
-        "chart.js": "^2.7.3"
+        "chart.js": "^4.3.3"
     },
     "repository": {
         "type": "git",
