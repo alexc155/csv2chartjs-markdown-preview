@@ -36,10 +36,11 @@
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.43",
         "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
+        "vscode": "^1.1.37"
     },
     "dependencies": {
-        "chart.js": "^2.7.3"
+        "chart.js": "^2.7.3",
+        "js-yaml": "^4.1.0"
     },
     "repository": {
         "type": "git",
