@@ -1,4 +1,7 @@
 function contentLoaded() {
+  // turn off animations as they can become annoying during typing
+  //Chart.defaults = { animation: { duration: 0 } }; // 2.x
+  Chart.defaults.animation.duration = 0; // 4.x
 
   var chartElements = document.getElementsByClassName("chartjs");
 
