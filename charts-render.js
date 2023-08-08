@@ -1,41 +1,39 @@
+// const log = s => {
+//   const p = document.createElement('p');
+//   p.innerText = s;
+//   document.body.appendChild(p);
+// };
+
 function contentLoaded() {
-
-  var chartElements = document.getElementsByClassName("chartjs");
-
-  var changes = [];
-
-  for (let index = 0; index < chartElements.length; index++) {
-    var element = chartElements.item(index);
-    var source = element.textContent;
-
-    changes.push({
-      placeholder: element.parentElement.parentElement,
-      chart: element,
-      source
-    });
-
-
+  for (const canvas of document.querySelectorAll("canvas.chartjs")) {
+    const p = canvas.parentElement.parentElement;
+    if ('PRE' == p.tagName) {
+      // replace <pre><code><canvas> with just <canvas>
+      p.outerHTML = canvas.outerHTML;
+    }
   }
 
-  for (let index = 0; index < changes.length; index++) {
-    const element = changes[index];
-    element.placeholder.outerHTML = element.chart.outerHTML;
+  for (const canvas of document.querySelectorAll("canvas.chartjs")) {
+    if ('initialized' == canvas.getAttribute('data-chartjs-status')) {
+      continue;
+    }
+
+    canvas.setAttribute('data-chartjs-status', 'initialized');
+
+    try {
+      const json = JSON.parse(canvas.textContent);
+      new Chart(canvas.getContext("2d"), json);
+    }
+    catch (e) {
+      // invalid json syntax!
+      canvas.outerHTML = `<pre><code>${e}</code></pre>`;
+    }
   }
-
-  var newchartElements = document.getElementsByClassName("chartjs");
-
-  for (let index = 0; index < newchartElements.length; index++) {
-    var element = newchartElements.item(index);
-    var source = element.textContent.replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2": ');
-    new Chart(element.getContext("2d"), JSON.parse(source.trim()));
-  }
-
 }
 
-window.addEventListener(
-  "load",
-  function () {
+window.addEventListener("load", contentLoaded, false);
+window.addEventListener("message", (event) => {
+  if ('updateContent' == event?.data?.type) {
     contentLoaded();
-  },
-  false
-);
+  }
+}, false);
