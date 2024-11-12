@@ -1,49 +1,50 @@
 {
-    "name": "chartjs-markdown-preview",
-    "displayName": "Chart.js Markdown Preview",
-    "description": "Adds Chart.js support to VSCode's builtin markdown preview",
-    "version": "0.0.2",
-    "publisher": "FlomoN",
-    "engines": {
-        "vscode": "^1.20.0"
-    },
-    "preview": true,
-    "categories": [
-        "Other"
+  "name": "csv2chartjs-markdown-preview",
+  "displayName": "CSV2Chart.js Markdown Preview",
+  "description": "Adds Chart.js support to VSCode's builtin markdown preview,  plus renders charts from CSV data",
+  "version": "0.1.0",
+  "publisher": "alexc155",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "preview": true,
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.sayHello"
+  ],
+  "contributes": {
+    "markdown.previewStyles": [
+      "./charts.css"
     ],
-    "activationEvents": [
-        "onCommand:extension.sayHello"
+    "markdown.previewScripts": [
+      "./node_modules/chart.js/dist/chart.umd.js",
+      "./charts-render.js"
     ],
-    "main": "./out/extension",
-    "contributes": {
-        "markdown.previewStyles": [
-            "./charts.css"
-        ],
-        "markdown.previewScripts": [
-            "./node_modules/chart.js/dist/Chart.min.js",
-            "./charts-render.js"
-        ],
-        "markdown.markdownItPlugins": true
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.43",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
-    },
-    "dependencies": {
-        "chart.js": "^2.7.3"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/FlomoN/chartjs-markdown-preview.git"
-    },
-    "icon": "logo.png"
+    "markdown.markdownItPlugins": true
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint \"src/**/*.ts\"",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.27",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlomoN/chartjs-markdown-preview.git"
+  },
+  "icon": "logo.png"
 }
